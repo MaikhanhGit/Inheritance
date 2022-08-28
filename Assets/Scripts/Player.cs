@@ -24,14 +24,12 @@ public class Player : MonoBehaviour
     public void IncreaseHealth(int amount)
     {
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);        
-        _currentHealth += amount;
-        Debug.Log("Player's Health: " + _currentHealth);
+        _currentHealth += amount;        
     }
 
     public void DecreaseHealth(int amount)
     {
-        _currentHealth -= amount;
-        Debug.Log("Player's Health: " + _currentHealth);
+        _currentHealth -= amount;        
         if(_currentHealth <= 0)
         {
             Kill();

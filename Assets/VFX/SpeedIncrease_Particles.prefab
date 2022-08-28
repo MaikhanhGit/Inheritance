@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3641923095292792458}
   - component: {fileID: 3641923095292792459}
   m_Layer: 0
-  m_Name: HealthIncrese_Particles
+  m_Name: SpeedIncrease_Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,7 +223,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.44906104, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.9281518, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
