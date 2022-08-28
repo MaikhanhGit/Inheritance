@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SpeedIncrease : CollectibleBase
-{
-    [SerializeField] float _speedAmount = 5;    
-   
+{   
+    [SerializeField] float _speedAmount = 2f;
+    [SerializeField] float _duration = 1.5f;
+
     protected override void Collect(Player player)
     {
-        // pull motor controller from the player
-        TankController controller = player.GetComponent<TankController>();
-        if(controller != null)
+        SpeedChangeOnTimer speedChangeOnTimer;
+        speedChangeOnTimer = player.GetComponent<SpeedChangeOnTimer>();
+        if (speedChangeOnTimer != null)
         {
-            controller.MaxSpeed += _speedAmount;
+            speedChangeOnTimer.FastSpeed(_speedAmount, _duration);
         }
-    }
 
+    }
     protected override void Movement(Rigidbody rb)
     {
         // calculate rotation

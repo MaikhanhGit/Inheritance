@@ -7,10 +7,10 @@ public class TankController : MonoBehaviour
     [SerializeField] float _moveSpeed = .25f;
     [SerializeField] float _turnSpeed = 2f;
     [SerializeField] float _maxSpeed = .25f;
-    public float MaxSpeed
+    public float MoveSpeed
     {
-        get => _maxSpeed;
-        set => _maxSpeed = value;
+        get => _moveSpeed;
+        set => _moveSpeed = value;        
     }
 
     Rigidbody _rb = null;
@@ -36,7 +36,7 @@ public class TankController : MonoBehaviour
         _rb.MovePosition(_rb.position + moveOffset);
         // technically adjusting vector is more accurate! (but more complex)
     }
-
+    
     public void TurnTank()
     {
         // calculate the turn amount
