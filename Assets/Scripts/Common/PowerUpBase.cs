@@ -61,8 +61,7 @@ public abstract class PowerUpBase : MonoBehaviour
         // VFS
         if(_powerUpParticles != null)
         {
-            _powerUpParticles = Instantiate(_powerUpParticles, transform.position, Quaternion.identity);
-            Debug.Log("powerUp Particles: " + _powerUpParticles);
+            _powerUpParticles = Instantiate(_powerUpParticles, transform.position, Quaternion.identity);            
         }
         // SFX
         if(_powerUpSFX != null)

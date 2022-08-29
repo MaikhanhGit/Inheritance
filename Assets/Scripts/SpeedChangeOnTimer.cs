@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SpeedChangeOnTimer : MonoBehaviour
 {
+    [SerializeField] AudioClip _deactivatedSFX;
+
     TankController controller;
     float _currentSpeed;
 
@@ -12,46 +14,48 @@ public class SpeedChangeOnTimer : MonoBehaviour
         controller = gameObject.GetComponent<TankController>();
         if (controller != null)
         {
-            _currentSpeed = controller.MoveSpeed;
+            _currentSpeed = controller.MaxSpeed;            
         }
     }
 
-    IEnumerator GoSlow(float _slowSpeed, float _slowSpeedDuration)
+    IEnumerator GoSlow(float slowSpeed, float slowSpeedDuration)
     {
         // set slow speed
-        controller.MoveSpeed = _slowSpeed;
+        controller.MaxSpeed = slowSpeed;        
         // set timer for slow speed
-        yield return new WaitForSeconds(_slowSpeedDuration);
-        // return normal speed
-        controller.MoveSpeed = _currentSpeed;
+        yield return new WaitForSeconds(slowSpeedDuration);
+        // return normal speed & SFX
+        controller.MaxSpeed = _currentSpeed;
+        AudioHelper.PlayClip2D(_deactivatedSFX, 1);
     }
 
-    IEnumerator GoFast(float _fastSpeed, float _fastSpeedDuration)
+    IEnumerator GoFast(float fastSpeed, float fastSpeedDuration)
     {
         // set fast speed
-        controller.MoveSpeed = _fastSpeed;
+        controller.MaxSpeed = fastSpeed;        
         // set timer for fast speed
-        yield return new WaitForSeconds(_fastSpeedDuration);
-        // return normal speed
-        controller.MoveSpeed = _currentSpeed;
+        yield return new WaitForSeconds(fastSpeedDuration);
+        // return normal speed & SFX
+        controller.MaxSpeed = _currentSpeed;
+        AudioHelper.PlayClip2D(_deactivatedSFX, 1);
     }
 
-    public void SlowSpeed(float _slowSpeed, float _slowSpeedDuration)
+    public void SlowSpeed(float slowSpeed, float slowSpeedDuration)
     {
         // start slow Tank's speed
         if (controller != null)
         {
-            StartCoroutine(GoSlow(_slowSpeed, _slowSpeedDuration));
+            StartCoroutine(GoSlow(slowSpeed, slowSpeedDuration));
         }
 
     }
 
-    public void FastSpeed(float _fastSpeed, float _fastSpeedDuration)
+    public void FastSpeed(float fastSpeed, float fastSpeedDuration)
     {
         // start increase Tank's speed
         if (controller != null)
         {
-            StartCoroutine(GoFast(_fastSpeed, _fastSpeedDuration));
+            StartCoroutine(GoFast(fastSpeed, fastSpeedDuration));
         }
 
     }

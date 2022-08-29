@@ -6,7 +6,9 @@ public class Invincibility : PowerUpBase
 {
     [SerializeField] GameObject _currentColorObject;
     [SerializeField] GameObject _newColorObject;
-       
+    [SerializeField] AudioClip _deactivatedSFX;
+
+
     protected override void PowerUp(Player player)
     {
         // powerUp vfx
@@ -21,8 +23,10 @@ public class Invincibility : PowerUpBase
         // powerDown vfx
         _currentColorObject.SetActive(true);
         _newColorObject.SetActive(false);
-        // setting back to normal
+        // setting back to normal & SFX
         player.InvincibilityDeactivated();
+        AudioHelper.PlayClip2D(_deactivatedSFX, 1);
+
     }
 }
    

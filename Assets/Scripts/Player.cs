@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] int _maxHealth = 3;
     [SerializeField] AudioClip _killSFX;
-    [SerializeField] TextMeshProUGUI _healthDisplay;
+    [SerializeField] TextMeshProUGUI _healthDisplay;   
 
     int _currentHealth;
     bool isInvincible = false;
@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        _currentHealth = _maxHealth;
+        _currentHealth = _maxHealth;        
     }
         
     public void IncreaseHealth(int amount)
@@ -31,8 +31,7 @@ public class Player : MonoBehaviour
         _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);        
         _currentHealth += amount;
         // update Health display
-        UpdateHealthDisplay(_currentHealth);
-        Debug.Log("Current Health after Increase: " + _currentHealth);
+        UpdateHealthDisplay(_currentHealth);        
     }
 
     public void DecreaseHealth(int amount)
@@ -41,8 +40,7 @@ public class Player : MonoBehaviour
         {
             _currentHealth -= amount;
             // update Health display
-            UpdateHealthDisplay(_currentHealth);
-            Debug.Log("Current Health after Decrease: " + _currentHealth);
+            UpdateHealthDisplay(_currentHealth);            
             if (_currentHealth <= 0)
             {
                 Kill();

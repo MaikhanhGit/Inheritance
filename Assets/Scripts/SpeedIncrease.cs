@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SpeedIncrease : CollectibleBase
 {   
-    [SerializeField] float _speedAmount = 2f;
-    [SerializeField] float _duration = 1.5f;
+    [SerializeField] float _increasedSpeed = 1.5f;
+    [SerializeField] float _duration = 1.5f;    
 
     protected override void Collect(Player player)
     {
@@ -13,7 +13,7 @@ public class SpeedIncrease : CollectibleBase
         speedChangeOnTimer = player.GetComponent<SpeedChangeOnTimer>();
         if (speedChangeOnTimer != null)
         {
-            speedChangeOnTimer.FastSpeed(_speedAmount, _duration);
+            speedChangeOnTimer.FastSpeed(_increasedSpeed, _duration);
         }
 
     }
