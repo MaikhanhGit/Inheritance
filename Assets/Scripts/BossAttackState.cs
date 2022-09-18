@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossAttackState : BossStateBase
 {
     [SerializeField] int _damageAmount = 3;
-    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle)
+    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol)
     {
         // start attacking behavior
     }
@@ -15,7 +15,7 @@ public class BossAttackState : BossStateBase
         
     }
 
-    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle)
+    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle, Patrol patrol)
     {
         
     }

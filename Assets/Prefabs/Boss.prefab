@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3794512570246915414}
   - component: {fileID: 3794512570246915413}
   - component: {fileID: 6296329857433211707}
+  - component: {fileID: 1402487462480537412}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -116,6 +117,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bossIdleParticle: {fileID: 3794512570370430394}
+--- !u!114 &1402487462480537412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794512570246915412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dea7f306de87db44ebf026068a2c47b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _travelSpeed: 10
+  _moveSpots: []
+  _startWaitTime: 3
 --- !u!1 &3794512570336780801
 GameObject:
   m_ObjectHideFlags: 0

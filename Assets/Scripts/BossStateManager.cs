@@ -9,14 +9,16 @@ public class BossStateManager : MonoBehaviour
     public BossMovingState _movingState = new BossMovingState();
     public BossAttackState _attackState = new BossAttackState();
 
-    [SerializeField] public ParticleSystem _bossIdleParticle;    
+    [SerializeField] public ParticleSystem _bossIdleParticle;
+    Patrol _patrol;
 
     private void Start()
     {
         // starting state
         _currentState = _idleState;
+        _currentState.EnterState(this, _bossIdleParticle, _patrol);
 
-        _currentState.EnterState(this, _bossIdleParticle);
+        _patrol = GetComponent<Patrol>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -24,7 +26,7 @@ public class BossStateManager : MonoBehaviour
         Player player = collider.GetComponent<Player>();
         if(player != null)
         {            
-            _currentState.OnTriggerEnter(this, collider, _bossIdleParticle);
+            _currentState.OnTriggerEnter(this, collider, _bossIdleParticle, _patrol);
         }
         
     }
@@ -37,7 +39,7 @@ public class BossStateManager : MonoBehaviour
     public void SwitchState(BossStateBase state)
     {
         _currentState = state;
-        _currentState.EnterState(this, _bossIdleParticle);
+        _currentState.EnterState(this, _bossIdleParticle, _patrol);
     }
 
 }
