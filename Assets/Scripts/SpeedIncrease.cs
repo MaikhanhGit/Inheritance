@@ -2,12 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedIncrease : CollectibleBase
+public class SpeedIncrease : PowerUpBase
 {   
     [SerializeField] float _increasedSpeed = 10f;
-    [SerializeField] float _duration = 5f;    
+    [SerializeField] float _duration = 5f;
+       
+    protected override void Movement(Rigidbody rb)
+    {
+        base.Movement(rb);
+    }
 
-    protected override void Collect(Player player)
+
+    protected override void PowerDown(Player player)
+    {
+        
+    }
+
+    
+
+    protected override void PowerUp(Player player)
     {
         SpeedChangeOnTimer speedChangeOnTimer;
         speedChangeOnTimer = player.GetComponent<SpeedChangeOnTimer>();
@@ -15,12 +28,5 @@ public class SpeedIncrease : CollectibleBase
         {
             speedChangeOnTimer.FastSpeed(_increasedSpeed, _duration);
         }
-
-    }
-    protected override void Movement(Rigidbody rb)
-    {
-        // calculate rotation
-        Quaternion turnOffset = Quaternion.Euler(MovementSpeed, MovementSpeed, MovementSpeed);
-        rb.MoveRotation(rb.rotation * turnOffset);
     }
 }

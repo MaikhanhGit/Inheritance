@@ -17,5 +17,9 @@ public class SpeedSlow : CollectibleBase
             speedChangeOnTimer.SlowSpeed(_speedAmount, _duration);
         }        
     }
-   
+
+    protected override void Move(Rigidbody rb)
+    {
+        base.Move(rb);
+    }
 }

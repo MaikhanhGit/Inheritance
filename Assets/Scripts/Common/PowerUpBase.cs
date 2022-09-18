@@ -2,19 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Collider))]
 public abstract class PowerUpBase : MonoBehaviour    
 {
     protected abstract void PowerUp(Player player);
     protected abstract void PowerDown(Player player);
+    
 
     [SerializeField] float _powerUpDuration = 5f;
     [SerializeField] float _powerUpAmount = 1f;
     [SerializeField] float _movementSpeed = 1f;
     [SerializeField] ParticleSystem _powerUpParticles;
-    [SerializeField] AudioClip _powerUpSFX;
+    protected ParticleSystem PowerUpParticle => _powerUpParticles;
+
+    [SerializeField] AudioClip _powerUpSFX = null;
+    protected AudioClip PowerUpSFX => _powerUpSFX;
+
+    [SerializeField] AudioClip _powerDownSFX = null;
+    protected AudioClip PowerDownSFX => _powerDownSFX = null  ;
+
     [SerializeField] GameObject _objectVisualToDisable;
 
-    Rigidbody _rb;
+    Rigidbody _rb = null;
+    protected Rigidbody ObjectRigidBody => _rb;
+    Collider _collider = null;
+    protected Collider ObjectCollider => _collider;
 
     private void Awake()
     {
@@ -28,13 +41,13 @@ public abstract class PowerUpBase : MonoBehaviour
 
     protected virtual void Movement(Rigidbody rb)
     {
-        // calculate rotation
+        // movement of the pickUp object
         Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
         rb.MoveRotation(_rb.rotation * turnOffset);
     }
 
     IEnumerator powerUpActivated(Player player, float duration)
-    {
+    {        
         PowerUp(player);
         yield return new WaitForSeconds(duration);
         PowerDown(player);
@@ -44,9 +57,9 @@ public abstract class PowerUpBase : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Player player = other.GetComponent<Player>();
+        
         if(player != null) 
-        {
-            FeedBack();
+        {            
             // disable powerUp visually
             _objectVisualToDisable.SetActive(false);
             // disable Collider
@@ -56,17 +69,4 @@ public abstract class PowerUpBase : MonoBehaviour
         }
     }
     
-    private void FeedBack()
-    {
-        // VFS
-        if(_powerUpParticles != null)
-        {
-            _powerUpParticles = Instantiate(_powerUpParticles, transform.position, Quaternion.identity);            
-        }
-        // SFX
-        if(_powerUpSFX != null)
-        {
-            AudioHelper.PlayClip2D(_powerUpSFX, 1);
-        }        
-    }
 }

@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class HealthIncrease : CollectibleBase
 {
-    [SerializeField] int _healthAdded = 1;
+    IHealable healAbleObject;
+
+    [SerializeField] int _healAmount = 3;    
 
     protected override void Collect(Player player)
     {
-        player.IncreaseHealth(_healthAdded);        
+        // sfx
+        AudioHelper.PlayClip2D(CollectSound, 1);
+        // play particle
+        CollectParticle.Play();
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        healAbleObject = other.GetComponent<IHealable>();
+        if(healAbleObject != null)
+        {
+            healAbleObject.Heal(_healAmount);
+        }
     }
 }

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Rigidbody))]
 public abstract class CollectibleBase : MonoBehaviour
 {
     protected abstract void Collect(Player player);
@@ -9,55 +11,39 @@ public abstract class CollectibleBase : MonoBehaviour
     [SerializeField] float _movementSpeed = 1f;
     protected float MovementSpeed => _movementSpeed;
 
-    [SerializeField] ParticleSystem _collectParticles;
-    [SerializeField] AudioClip _collectSound;
-    Rigidbody _rb;     
-    
+    [SerializeField] ParticleSystem _collectParticle = null;
+    protected ParticleSystem CollectParticle => _collectParticle;
+
+    [SerializeField] Transform _collectParticleSpawnPosition = null;
+    protected Transform CollectParticleSpawnPosition => _collectParticleSpawnPosition;
+
+    [SerializeField] AudioClip _collectSound = null;
+    protected AudioClip CollectSound => _collectSound;
+    Rigidbody _rb = null;
+    protected Rigidbody ObjectRigidBody => _rb;
+
+    Collider _collider = null;
+    protected Collider ObjectCollider => _collider;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _collider = GetComponent<Collider>();
     }
 
     private void FixedUpdate()
     {
-        Movement(_rb);
-    }
+        Move(_rb);
+    }    
 
-    protected virtual void Movement(Rigidbody rb)
+    protected virtual void Move(Rigidbody rb)
     {
         // calculate rotation
-        Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
-        rb.MoveRotation(_rb.rotation * turnOffset);
+        Quaternion turnOffset = Quaternion.Euler(MovementSpeed, MovementSpeed, MovementSpeed);
+        rb.MoveRotation(rb.rotation * turnOffset);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Player player = other.gameObject.GetComponent<Player>();
-        if(player != null)
-        {
-            Collect(player);
-            // spawn particles && sfx because we need to disable object
-            Feedback();
-
-            gameObject.SetActive(false);
-        }
-    }
-
-    private void Feedback()
-    {
-        // particles
-        if(_collectParticles != null)
-        {
-            _collectParticles = Instantiate(_collectParticles, transform.position, Quaternion.identity);
-        }
-
-        // audio
-        if(_collectSound != null)
-        {
-            AudioHelper.PlayClip2D(_collectSound, 1f);
-        }
-    }
-
 
 }
+
+
+

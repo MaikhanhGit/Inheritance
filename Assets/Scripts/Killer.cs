@@ -2,11 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Killer : Enemy
+public class Killer : EnemyBase, IDamageable
 {
-    protected override void PlayerImpact(Player player)
+    public override void DoDamage(Player player)
     {
-        base.PlayerImpact(player);//base.PlayerImpact(player);
-        player.Kill();
+        
     }
+
+    public void Kill()
+    {
+        
+    }
+
+    
+
+    public void TakeDamage(int amount)
+    {
+        
+    }
+
+    
 }

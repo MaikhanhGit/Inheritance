@@ -164,6 +164,7 @@ MonoBehaviour:
   _movementSpeed: 1
   _powerUpParticles: {fileID: 3641923095292792458, guid: 4f305cc0bce96a940a0b99d653d19fe7, type: 3}
   _powerUpSFX: {fileID: 8300000, guid: cfbca6304aa558c4e8290bbda48e66d9, type: 3}
+  _powerDownSFX: {fileID: 8300000, guid: b3564c83794864844b01317f09a2fee3, type: 3}
   _objectVisualToDisable: {fileID: 204096513642841599}
   _currentColorObject: {fileID: 0}
   _newColorObject: {fileID: 0}

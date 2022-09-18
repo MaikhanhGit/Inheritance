@@ -5,8 +5,8 @@ using UnityEngine;
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _maxSpeed = 3f;
-    [SerializeField] float _turnSpeed = 1.5f;
-    
+    [SerializeField] float _turnSpeed = 1.5f;        
+
     public float MaxSpeed
     {
         get => _maxSpeed;
@@ -18,6 +18,14 @@ public class TankController : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        float x = GetComponent<Transform>().position.x;
+        float y = GetComponent<Transform>().position.y;
+        float z = GetComponent<Transform>().position.z;
+        
     }
 
     private void FixedUpdate()
@@ -55,4 +63,5 @@ public class TankController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         transform.Rotate((transform.up * horizontal) * 100 * _turnSpeed * Time.fixedDeltaTime);
     }
+    
 }
