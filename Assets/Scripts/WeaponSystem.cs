@@ -10,6 +10,9 @@ public class WeaponSystem : MonoBehaviour
     [SerializeField] WeaponBase _slot02WeaponPrefab = null;
     // weapon socket helps position weapon and graphic
     [SerializeField] Transform _weaponSocket = null;
+
+    [SerializeField] AudioClip _shootSound = null;
+
     // weapon will use the Strategy Pattern
     // each new weapon will have its own behavior
     public WeaponBase EquippedWeapon{get; private set;}

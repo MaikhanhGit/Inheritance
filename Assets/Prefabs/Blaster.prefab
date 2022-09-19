@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shootParticle: {fileID: 7186027884650313079, guid: 81a33313bbe342142987584c2af75cf9, type: 3}
-  _shootSound: {fileID: 8300000, guid: 3addba856ff48b64d96eced3e693b696, type: 3}
+  _shootSound: {fileID: 8300000, guid: 8fe78da30422d2a47b579d32bb4555fe, type: 3}
   _blasterProjectile: {fileID: 985205712154554805, guid: 419bc374a70a25a41930243093a313d9, type: 3}
   _projectileSpawnLocation: {fileID: 5654496448731558428}

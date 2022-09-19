@@ -25,7 +25,7 @@ public class Blaster : WeaponBase
         // play audio
         if (ShootSound)
         {
-            AudioSource.PlayClipAtPoint(ShootSound, _projectileSpawnLocation.position);
+            AudioHelper.PlayClip2D(ShootSound, 2);
         }
         
     }
