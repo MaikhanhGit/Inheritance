@@ -7,7 +7,12 @@ public class BossAttackState : BossStateBase
     [SerializeField] int _damageAmount = 3;
     public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol)
     {
-        // start attacking behavior
+        // stop patrolling
+        patrol.enabled = false;
+        // move Boss to the middle
+        boss.transform.position = new Vector3 (0, 2, 0);
+        // play animation of Boss bouncing down in the middle
+        // Start Attacking mode
     }
 
     public override void UpdateState(BossStateManager boss)

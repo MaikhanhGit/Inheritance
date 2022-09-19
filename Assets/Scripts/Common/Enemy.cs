@@ -20,12 +20,12 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {        
-        Player player = other.gameObject.GetComponent<Player>();
-        if(player != null)
+        Player player = other.gameObject.GetComponent<Player>();        
+        if(player)
         {
             damageableObject = player.GetComponent<IDamageable>();
             damageableObject.TakeDamage(_damageAmountOnCollision);
-            ImpactFeedback();
+            ImpactFeedback();            
         }
     }    
 

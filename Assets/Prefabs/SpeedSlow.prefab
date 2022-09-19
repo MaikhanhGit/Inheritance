@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
-  _collectParticles: {fileID: 3641923095292792458, guid: de67d9fdc96bc9d4697ba6648ee4a101, type: 3}
+  _collectParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
+  _collectParticleSpawnPosition: {fileID: 9126244863133931721}
   _collectSound: {fileID: 8300000, guid: 92eaa0e981e2b574780bf788e5415161, type: 3}
-  _speedAmount: 0.05
-  _duration: 1.5
+  _speedAmount: 1
+  _duration: 5

@@ -6,7 +6,7 @@ public class Patrol : MonoBehaviour
 {
     [SerializeField] float _travelSpeed = 10;
     [SerializeField] Transform[] _moveSpots;
-    [SerializeField] float _startWaitTime = 4;
+    [SerializeField] float _startWaitTime = 3;
     [SerializeField] ParticleSystem _spawnPositionSignal;
     [SerializeField] float _spawnDelayTime = 2;
 

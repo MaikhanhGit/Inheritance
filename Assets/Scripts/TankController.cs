@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class TankController : MonoBehaviour
 {
     [SerializeField] float _maxSpeed = 3;
@@ -22,26 +23,29 @@ public class TankController : MonoBehaviour
     }
 
     private void FixedUpdate()
-    {
-        float mass = gameObject.GetComponent<Rigidbody>().mass;
-        _rb.AddForce(0, mass * -9.81f, 0);
+    {        
         MoveTank();
-        TurnTank();
+        TurnTank();        
     }
 
+    
     public void MoveTank()
     {
+        /*
         // calculate the move amount
-        //float moveAmountThisFrame = Input.GetAxis("Vertical") * _maxSpeed * 200;
+        float moveAmountThisFrame = Input.GetAxis("Vertical") * _maxSpeed;
         // create a vector from amount and direction
-        //Vector3 moveOffset = transform.forward * moveAmountThisFrame;
+        Vector3 moveOffset = transform.forward * moveAmountThisFrame;
         // apply vector to the rigidbody
-        //_rb.MovePosition(_rb.position + moveOffset);
-        // technically adjusting vector is more accurate! (but more complex)
+        _rb.MovePosition(_rb.position + moveOffset*Time.fixedDeltaTime);
+        // technically adjusting vector is more accurate! (but more complex)        
+        */
         
         float vertical = Input.GetAxis("Vertical");
         _rb.velocity = (transform.forward * vertical) * 200 * _maxSpeed * Time.fixedDeltaTime;
-
+        // add gravity force
+        float mass = _rb.mass;
+        _rb.AddForce(Physics.gravity);        
 
     }
 
@@ -56,4 +60,5 @@ public class TankController : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         transform.Rotate((transform.up * horizontal) * 100 * _turnSpeed * Time.fixedDeltaTime);
     }
+    
 }

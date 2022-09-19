@@ -4,28 +4,47 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-public class Damager : EnemyBase
+public class Damager : EnemyBase, IDamageable
 {
-    Rigidbody _rb;
+    IDamageable damagableObject;
 
-    private void Start()
+    public void Kill()
     {
-        _rb = GetComponent<Rigidbody>();
+        Destroy(gameObject);
     }
 
-    public override void DoDamage(Player player)
+    public void TakeDamage(int amount)
     {
-        Health health = player.GetComponent<Health>();
-        health.TakeDamage(DoDamageAmount);
+        
     }
 
-   
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        Player player = other.GetComponent<Player>();
-        if(player != null)
+        Player player = other.gameObject.GetComponent<Player>();
+        if (player)
         {
-            DoDamage(player);
+            damagableObject = player.GetComponent<IDamageable>();
+            damagableObject.TakeDamage(DamageAmount);
+            ImpactFeedback();
+        }
+    }
+    public override void ImpactFeedback()
+    {
+        // particles
+        if (ImpactParticle != null)
+        {
+            ParticleSystem impactParticle = Instantiate
+                (ImpactParticle, transform.position, Quaternion.identity);
+            if (impactParticle)
+            {
+                Object.Destroy(impactParticle, 3f);
+            }
+
+        }
+        // audio. TOD - consider Object Pooling for performance
+        if (ImpactSound != null)
+        {
+            AudioHelper.PlayClip2D(ImpactSound, 1f);
         }
     }
 }

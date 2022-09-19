@@ -11,6 +11,9 @@ public class BossStateManager : MonoBehaviour
 
     [SerializeField] public ParticleSystem _bossIdleParticle;
     Patrol _patrol;
+    Health _bossHealth;
+    float _bossCurrentHealth;
+    float _bossMaxHealth;
 
     private void Start()
     {
@@ -19,12 +22,18 @@ public class BossStateManager : MonoBehaviour
         _currentState.EnterState(this, _bossIdleParticle, _patrol);
 
         _patrol = GetComponent<Patrol>();
+        // get boss Health
+        _bossHealth = GetComponent<Health>();
+        _bossMaxHealth = _bossHealth.MaxHealth;
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         Player player = collider.GetComponent<Player>();
-        if(player != null)
+        ProjectileBlaster blasterProjectile = collider.gameObject.GetComponent<ProjectileBlaster>();
+        ProjectileLauncher launcherProjectile = collider.gameObject.GetComponent<ProjectileLauncher>();
+
+        if (player || blasterProjectile || launcherProjectile)
         {            
             _currentState.OnTriggerEnter(this, collider, _bossIdleParticle, _patrol);
         }
@@ -34,6 +43,13 @@ public class BossStateManager : MonoBehaviour
     private void Update()
     {
         _currentState.UpdateState(this);
+        // check boss current health
+        _bossCurrentHealth = _bossHealth.CurrentHealth;
+        
+        if (_bossCurrentHealth < (_bossMaxHealth/2))
+        {            
+            SwitchState(_attackState);
+        }        
     }
 
     public void SwitchState(BossStateBase state)

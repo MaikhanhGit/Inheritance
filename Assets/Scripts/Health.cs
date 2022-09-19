@@ -19,6 +19,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     bool _isInvincible;
 
     public int CurrentHealth => _currentHealth;
+    public int MaxHealth => _maxHealth;
 
     private void Awake()
     {
