@@ -91,8 +91,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
 
     public void DeactivateInvincibility()
     {
-        _isInvincible = false;
-        Debug.Log("Invincibility Deactivated");
+        _isInvincible = false;        
     }
 
     public void Heal(int healAmount)

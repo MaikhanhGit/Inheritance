@@ -11,8 +11,11 @@ public abstract class PowerUpBase : MonoBehaviour
     
 
     [SerializeField] float _powerUpDuration = 5f;
-    [SerializeField] float _powerUpAmount = 1f;
+    protected float PowerUpDuration => _powerUpDuration;
+    
     [SerializeField] float _movementSpeed = 1f;
+    protected float MovementSpeed => _movementSpeed;
+
     [SerializeField] ParticleSystem _powerUpParticles;
     protected ParticleSystem PowerUpParticle => _powerUpParticles;
 
@@ -20,9 +23,10 @@ public abstract class PowerUpBase : MonoBehaviour
     protected AudioClip PowerUpSFX => _powerUpSFX;
 
     [SerializeField] AudioClip _powerDownSFX = null;
-    protected AudioClip PowerDownSFX => _powerDownSFX = null  ;
+    protected AudioClip PowerDownSFX => _powerDownSFX;
 
     [SerializeField] GameObject _objectVisualToDisable;
+    protected GameObject ObjectToDisable => _objectVisualToDisable;
 
     Rigidbody _rb = null;
     protected Rigidbody ObjectRigidBody => _rb;
@@ -43,30 +47,11 @@ public abstract class PowerUpBase : MonoBehaviour
     {
         // movement of the pickUp object
         Quaternion turnOffset = Quaternion.Euler(0, _movementSpeed, 0);
-        rb.MoveRotation(_rb.rotation * turnOffset);
+        rb.MoveRotation(_rb.rotation * turnOffset);        
     }
 
-    IEnumerator powerUpActivated(Player player, float duration)
-    {        
-        PowerUp(player);
-        yield return new WaitForSeconds(duration);
-        PowerDown(player);
-        gameObject.SetActive(false);
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        Player player = other.GetComponent<Player>();
         
-        if(player != null) 
-        {            
-            // disable powerUp visually
-            _objectVisualToDisable.SetActive(false);
-            // disable Collider
-            gameObject.GetComponent<Collider>().enabled = false;
-            // start timer
-            StartCoroutine(powerUpActivated(player, _powerUpDuration));            
-        }
-    }
+
+    
     
 }

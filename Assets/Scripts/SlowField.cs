@@ -5,17 +5,30 @@ using UnityEngine;
 public class SlowField : MonoBehaviour
 {
     [SerializeField] float _accelerateAmount = .2f;
+    [SerializeField] AudioClip _sfxClip;
 
     private void OnTriggerEnter(Collider other)
     {
-        Projectile incomingProjectile =
-            other.GetComponent<Projectile>();
+        ProjectileBlaster blasterProjectile = other.GetComponent<ProjectileBlaster>();
+        ProjectileLauncher launcherProjectile = other.GetComponent<ProjectileLauncher>();
+        
         // if it's a valid projectile, apply new movement behavior
-        if(incomingProjectile != null)
+        
+        if (blasterProjectile)
+        {
+            AccelerateMoveBehavior slowStart = new AccelerateMoveBehavior
+                 (other.attachedRigidbody, _accelerateAmount);
+
+            blasterProjectile.SetMoveBehavior(slowStart);
+            AudioHelper.PlayClip2D(_sfxClip, 1);
+        }
+        else if (launcherProjectile)
         {
             AccelerateMoveBehavior slowStart = new AccelerateMoveBehavior
                 (other.attachedRigidbody, _accelerateAmount);
-            incomingProjectile.SetMoveBehavior(slowStart);
+            
+            launcherProjectile.SetMoveBehavior(slowStart);
+            AudioHelper.PlayClip2D(_sfxClip, 1);
         }
     }
 }

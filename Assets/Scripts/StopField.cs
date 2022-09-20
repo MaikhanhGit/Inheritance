@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class StopField : MonoBehaviour
 {
+    [SerializeField] AudioClip _sfxClip;
     private void OnTriggerEnter(Collider other)
     {
-        Projectile incomingProjectile = other.GetComponent<Projectile>();
-        if(incomingProjectile != null)
+        ProjectileBlaster blasterProjectile = other.GetComponent<ProjectileBlaster>();
+        ProjectileLauncher launcherProjectile = other.GetComponent<ProjectileLauncher>();
+        if(blasterProjectile)
         {
             FreezeMovementBehavior noMoveBehavior = new FreezeMovementBehavior(other.attachedRigidbody);
-            incomingProjectile.SetMoveBehavior(noMoveBehavior);
+            blasterProjectile.SetMoveBehavior(noMoveBehavior);
+            AudioHelper.PlayClip2D(_sfxClip, 1);
+
+        }else if (launcherProjectile)
+        {
+            FreezeMovementBehavior noMoveBehavior = new FreezeMovementBehavior(other.attachedRigidbody);
+            launcherProjectile.SetMoveBehavior(noMoveBehavior);
+            AudioHelper.PlayClip2D(_sfxClip, 1);
+
+
         }
     }
 }
