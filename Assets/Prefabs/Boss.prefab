@@ -811,7 +811,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 0
+=======
+  m_IsActive: 1
+>>>>>>> main
 --- !u!4 &2064053998
 Transform:
   m_ObjectHideFlags: 0
@@ -856,6 +860,7 @@ Transform:
   m_Father: {fileID: 3794512570246915409}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &403125597351821392
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,6 +895,8 @@ Transform:
   m_Father: {fileID: 3794512570246915409}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> main
 --- !u!1 &760293674997860772
 GameObject:
   m_ObjectHideFlags: 0
@@ -1181,6 +1188,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1094502893434662077
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,6 +1272,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+=======
+>>>>>>> main
 --- !u!1 &1252066147272389695
 GameObject:
   m_ObjectHideFlags: 0
@@ -1279,7 +1289,11 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
+<<<<<<< HEAD
   m_IsActive: 1
+=======
+  m_IsActive: 0
+>>>>>>> main
 --- !u!4 &4052080512963985322
 Transform:
   m_ObjectHideFlags: 0
@@ -1943,6 +1957,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &3253165613196032271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1976,6 +1991,8 @@ Transform:
   m_Father: {fileID: 8154844620848557021}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> main
 --- !u!1 &3316568769914613016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2084,6 +2101,7 @@ GameObject:
   - component: {fileID: 3794512570246915409}
   - component: {fileID: 3794512570246915408}
   - component: {fileID: 3794512570246915415}
+<<<<<<< HEAD
   - component: {fileID: 6037178110490496352}
   - component: {fileID: 3794512570246915413}
   - component: {fileID: 6296329857433211707}
@@ -2091,6 +2109,12 @@ GameObject:
   - component: {fileID: 949983331}
   - component: {fileID: 949983332}
   - component: {fileID: 949983341}
+=======
+  - component: {fileID: 3794512570246915414}
+  - component: {fileID: 3794512570246915413}
+  - component: {fileID: 6296329857433211707}
+  - component: {fileID: 1402487462480537412}
+>>>>>>> main
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2113,7 +2137,10 @@ Transform:
   - {fileID: 3794512570370430392}
   - {fileID: 2064053998}
   - {fileID: 4052080512963985322}
+<<<<<<< HEAD
   - {fileID: 8154844620848557021}
+=======
+>>>>>>> main
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2146,7 +2173,11 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+<<<<<<< HEAD
 --- !u!114 &6037178110490496352
+=======
+--- !u!114 &3794512570246915414
+>>>>>>> main
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2155,10 +2186,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 3794512570246915412}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 57610460451853c4296957bdb37e660f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _damageAmountOnCollision: 1
+=======
+  m_Script: {fileID: 11500000, guid: db7465440c6bfc84aa5e52295e8eb44b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmountOnCollision: 1
+  _impactParticles: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
+  _impactSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
+>>>>>>> main
 --- !u!114 &3794512570246915413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2175,6 +2215,14 @@ MonoBehaviour:
   _damageAmount: 1
   _healthDisplay: {fileID: 0}
   _objectToBeDestroyed: {fileID: 3794512570336780801}
+<<<<<<< HEAD
+=======
+  _killSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
+  _damageSound: {fileID: 8300000, guid: e248e5016772d514196fcaf08ce7d367, type: 3}
+  _killParticle: {fileID: 5714350795187427476, guid: 5ce31ccb28b739b4d9c1ba5dff1b4ff3, type: 3}
+  _damageParticle: {fileID: 5714350795187427476, guid: 5ce31ccb28b739b4d9c1ba5dff1b4ff3, type: 3}
+  _particleSpawnLocation: {fileID: 3794512570336780925}
+>>>>>>> main
 --- !u!114 &6296329857433211707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2221,6 +2269,7 @@ MonoBehaviour:
   _spawnPositionSignal: {fileID: 2129764751877086730, guid: 230a4cd83696bd143ba4da57654168aa, type: 3}
   _spawnDelayTime: 2
   _startPatrol: 0
+<<<<<<< HEAD
 --- !u!114 &949983331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2263,6 +2312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bossArtCurrent: {fileID: 1252066147272389695}
   _bossArtDamaged: {fileID: 403125597351821392}
+=======
+>>>>>>> main
 --- !u!1 &3794512570336780801
 GameObject:
   m_ObjectHideFlags: 0
@@ -7278,6 +7329,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &4356696837412964398
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,6 +7543,8 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+=======
+>>>>>>> main
 --- !u!1 &5118198515362366697
 GameObject:
   m_ObjectHideFlags: 0
@@ -7879,6 +7933,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &5814481885120663273
 GameObject:
   m_ObjectHideFlags: 0
@@ -7962,6 +8017,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+=======
+>>>>>>> main
 --- !u!1 &5863706644295943851
 GameObject:
   m_ObjectHideFlags: 0
@@ -8738,6 +8795,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &8091478999861871448
 GameObject:
   m_ObjectHideFlags: 0
@@ -8821,6 +8879,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+=======
+>>>>>>> main
 --- !u!1 &8783220713636087408
 GameObject:
   m_ObjectHideFlags: 0

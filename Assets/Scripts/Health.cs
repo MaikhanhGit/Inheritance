@@ -48,10 +48,15 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             UpdateHealthDisplay(_currentHealth);
             // activate impact feedback
             _impactFeedback?.StartFeedback();
+<<<<<<< HEAD
             
             
         }        
     }   
+=======
+        }        
+    }
+>>>>>>> main
 
     public void Kill()
     {

@@ -1762,6 +1762,12 @@ MonoBehaviour:
   _damageAmount: 1
   _healthDisplay: {fileID: 1876748110}
   _objectToBeDestroyed: {fileID: 1708869615}
+<<<<<<< HEAD
+=======
+  _killSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
+  _killParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
+  _particleSpawnLocation: {fileID: 1708869616}
+>>>>>>> main
 --- !u!114 &732590203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2329,6 +2335,39 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8663719537958411659, guid: 0171f8eb4b3a412448539f8b6971e640, type: 3}
   m_PrefabInstance: {fileID: 945203416}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &949983323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3794512570246915412, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
+  m_PrefabInstance: {fileID: 3794512570595774140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &949983331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949983323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89fff3ad47ce3c48a13873dcf64cf13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _impactParticle: {fileID: 3641923095292792458, guid: 7ca12c6659f2c3c47a7d5f3607579701, type: 3}
+  _impactSound: {fileID: 8300000, guid: e248e5016772d514196fcaf08ce7d367, type: 3}
+--- !u!114 &949983332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 949983323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d719fc9cbd62ac4aadd0f9ed68b13e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killedParticle: {fileID: 3641923095292792458, guid: e3228753f4006dc4d8593538130641d1, type: 3}
+  _killedSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
 --- !u!1001 &972530602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5600,6 +5639,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2064053997, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252066147272389695, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1402487462480537412, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
       propertyPath: _moveSpots.Array.data[0]
       value: 
@@ -5652,6 +5699,10 @@ PrefabInstance:
       propertyPath: _moveSpots.Array.data[12]
       value: 
       objectReference: {fileID: 1264157234}
+    - target: {fileID: 3794512570246915408, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3794512570246915409, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
       propertyPath: m_RootOrder
       value: 7
