@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BossMovingState : BossStateBase
-{
-    [SerializeField] int _damageAmount = 2;
+{    
     IDamageable damageableObject;
     public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol)
     {
