@@ -93,10 +93,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1804104544810378849}
   - component: {fileID: 1804104544810378850}
-  - component: {fileID: 1804104544810378851}
   - component: {fileID: 1804104544810378852}
+  - component: {fileID: 7056585759899230455}
   m_Layer: 0
-  m_Name: KillerEnemy
+  m_Name: EnemyKiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -131,22 +131,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &1804104544810378851
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1804104544810378853}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1804104544810378852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,3 +147,17 @@ MonoBehaviour:
   _impactParticle: {fileID: 3641923095292792458, guid: e3228753f4006dc4d8593538130641d1, type: 3}
   _impactSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
   _objectToDestroy: {fileID: 90127453862527622}
+--- !u!114 &7056585759899230455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804104544810378853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d719fc9cbd62ac4aadd0f9ed68b13e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _killedParticle: {fileID: 3641923095292792458, guid: e3228753f4006dc4d8593538130641d1, type: 3}
+  _killedSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}

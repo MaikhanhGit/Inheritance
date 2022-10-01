@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] int _damageAmountOnCollision = 1;
         
     IDamageable damageableObject;
-    Rigidbody _rb;
+    Rigidbody _rb;    
     
     private void Awake()
     {
@@ -17,11 +17,15 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        damageableObject = other.gameObject.GetComponent<IDamageable>();
-        if (damageableObject != null)
+        Player player = other.gameObject.GetComponent<Player>();
+        if(player != null)
         {
-            damageableObject.TakeDamage(_damageAmountOnCollision);
-        }
+            damageableObject = other.gameObject.GetComponent<IDamageable>();
+            if (damageableObject != null)
+            {
+                damageableObject.TakeDamage(_damageAmountOnCollision);
+            }
+        }        
     }        
    
 }

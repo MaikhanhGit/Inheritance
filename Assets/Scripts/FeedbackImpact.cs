@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-public class FeedbackImpactEnemy : MonoBehaviour, IFeedbackImpact
+public class FeedbackImpact : MonoBehaviour, IFeedbackImpact
 {
     [SerializeField] ParticleSystem _impactParticle;
-    [SerializeField] AudioClip _impactSound;    
-
+    [SerializeField] AudioClip _impactSound;
+    
     public void StartFeedback()
-    {
+    {        
         // particles
         if (_impactParticle != null)
         {            
@@ -25,4 +26,5 @@ public class FeedbackImpactEnemy : MonoBehaviour, IFeedbackImpact
             AudioHelper.PlayClip2D(_impactSound, 1f);
         }
     }
+    
 }

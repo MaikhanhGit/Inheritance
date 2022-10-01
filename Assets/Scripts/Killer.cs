@@ -4,54 +4,35 @@ using UnityEngine;
 
 public class Killer : EnemyBase, IDamageable
 {
-    IDamageable damagableObject;
+    IDamageable _damagableObject;
+    IFeedbackKilled _killedFeedback;
 
-    
-    public void Kill()
+    private void Awake()
     {
-        ImpactFeedback();
-        gameObject.GetComponent<Collider>().enabled = false;
-        ObjectToDesTroy.SetActive(false);
+        _killedFeedback = GetComponent<IFeedbackKilled>();
     }
-
-    public void TakeDamage(int amount)
-    {
-        ImpactFeedback();
-        Kill();
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         Player player = other.gameObject.GetComponent<Player>();
-        if (player)
-        {            
-            damagableObject = player.GetComponent<IDamageable>();
-            if(damagableObject != null)
-            {
-                damagableObject.Kill();
-                ImpactFeedback();
-            }            
-        }
-    }
-     
-
-    public override void ImpactFeedback()
-    {
-        // particles
-        if (ImpactParticle  != null)
+        if (player != null)
         {
-            ParticleSystem impactParticle = Instantiate
-                (ImpactParticle, transform.position, Quaternion.identity);
-            if (impactParticle)
+            _damagableObject = player.GetComponent<IDamageable>();
+            if (_damagableObject != null)
             {
-                Object.Destroy(impactParticle, 3f);
+                _damagableObject.Kill();
             }
-
-        }
-        // audio. TOD - consider Object Pooling for performance
-        if (ImpactSound != null)
-        {
-            AudioHelper.PlayClip2D(ImpactSound, 1f);
         }
     }
+
+    public void TakeDamage(int amount)
+    {        
+        Kill();
+    }
+    public void Kill()
+    {
+        _killedFeedback?.StartFeedback();
+        gameObject.GetComponent<Collider>().enabled = false;
+        ObjectToDesTroy.SetActive(false);
+    }
+   
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Health : MonoBehaviour, IDamageable, IHealable
 {
@@ -17,7 +18,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     bool _isInvincible;
 
     public int CurrentHealth => _currentHealth;
-    public int MaxHealth => _maxHealth;
+    public int MaxHealth => _maxHealth;    
 
     private void Awake()
     {
@@ -47,8 +48,10 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             UpdateHealthDisplay(_currentHealth);
             // activate impact feedback
             _impactFeedback?.StartFeedback();
+            
+            
         }        
-    }
+    }   
 
     public void Kill()
     {

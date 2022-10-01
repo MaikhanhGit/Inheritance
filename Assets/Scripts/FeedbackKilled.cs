@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FeedbackKilledEnemy : MonoBehaviour, IFeedbackKilled
+public class FeedbackKilled : MonoBehaviour, IFeedbackKilled
 {
     [SerializeField] ParticleSystem _killedParticle;
     [SerializeField] AudioClip _killedSound;    
