@@ -55,13 +55,13 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             damageParticle.Play();
             if (damageParticle)
             {
-                Object.Destroy(damageParticle, 3f);
+                Destroy(damageParticle, 3f);
             }
             
         }
         
     }
->>>>>>> main
+
 
     public void Kill()
     {
@@ -81,7 +81,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             killParticle.Play();
             if (killParticle)
             {
-                Object.Destroy(killParticle, 3f);
+                Destroy(killParticle, 3f);
             }
         }        
     }
