@@ -10,8 +10,6 @@ public class BossStateManager : MonoBehaviour
     public BossAttackState _attackState = new BossAttackState();
 
     [SerializeField] public ParticleSystem _bossIdleParticle;
-    [SerializeField] public GameObject _bossNormalVisual;
-    [SerializeField] GameObject _bossAngryVisual;
     Patrol _patrol;
     Health _bossHealth;
     float _bossCurrentHealth;
@@ -49,8 +47,7 @@ public class BossStateManager : MonoBehaviour
         _bossCurrentHealth = _bossHealth.CurrentHealth;
         
         if (_bossCurrentHealth < (_bossMaxHealth/2))
-        {
-            ChangeBossVisual();
+        {            
             SwitchState(_attackState);
         }        
     }
@@ -59,12 +56,6 @@ public class BossStateManager : MonoBehaviour
     {
         _currentState = state;
         _currentState.EnterState(this, _bossIdleParticle, _patrol);
-    }
-
-    void ChangeBossVisual()
-    {
-        _bossAngryVisual.SetActive(true);
-        _bossNormalVisual.SetActive(false);
     }
 
 }

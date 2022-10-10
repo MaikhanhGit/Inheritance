@@ -9,10 +9,12 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     [SerializeField] int _maxHealth = 100;
     [SerializeField] int _damageAmount = 1;
     [SerializeField] TextMeshProUGUI _healthDisplay;
-    [SerializeField] GameObject _objectToBeDestroyed;          
-
-    IFeedbackImpact _impactFeedback;
-    IFeedbackKilled _killedFeedback;
+    [SerializeField] GameObject _objectToBeDestroyed;
+    [SerializeField] AudioClip _killSound;
+    [SerializeField] AudioClip _damageSound;
+    [SerializeField] ParticleSystem _killParticle;
+    [SerializeField] ParticleSystem _damageParticle;
+    [SerializeField] Transform _particleSpawnLocation;
 
     int _currentHealth = 0;
     bool _isInvincible;
@@ -22,11 +24,9 @@ public class Health : MonoBehaviour, IDamageable, IHealable
 
     private void Awake()
     {
+        _currentHealth = _maxHealth;
         UpdateHealthDisplay(_maxHealth);
-        _currentHealth = _maxHealth;        
         _isInvincible = false;
-        _impactFeedback = GetComponent<IFeedbackImpact>();
-        _killedFeedback = GetComponent<IFeedbackKilled>();
     }    
 
     void UpdateHealthDisplay(int currentHealth)
@@ -38,7 +38,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     {        
         if(_isInvincible == false)
         {
-            // damage behavior
+            // damage
             _currentHealth -= amount;            
             if (_currentHealth <= 0)
             {
@@ -46,15 +46,20 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             }
             // update health bar
             UpdateHealthDisplay(_currentHealth);
-            // activate impact feedback
-            _impactFeedback?.StartFeedback();
-<<<<<<< HEAD
+            // playsound
+            AudioHelper.PlayClip2D(_damageSound, 1);
+            // play particle
+
+            ParticleSystem damageParticle = Instantiate
+                (_damageParticle, _particleSpawnLocation.position, Quaternion.identity);
+            damageParticle.Play();
+            if (damageParticle)
+            {
+                Object.Destroy(damageParticle, 3f);
+            }
             
-            
-        }        
-    }   
-=======
-        }        
+        }
+        
     }
 >>>>>>> main
 
@@ -68,7 +73,16 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             {
                 Destroy(gameObject);
             }
-            _killedFeedback?.StartFeedback();
+            // play sound
+            AudioHelper.PlayClip2D(_killSound, 1);
+            // play particle
+            ParticleSystem killParticle = Instantiate
+                (_killParticle, _particleSpawnLocation.position, Quaternion.identity);
+            killParticle.Play();
+            if (killParticle)
+            {
+                Object.Destroy(killParticle, 3f);
+            }
         }        
     }
 
