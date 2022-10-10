@@ -17,7 +17,6 @@ public class SpeedChangeOnTimer : MonoBehaviour
             _currentSpeed = controller.MaxSpeed;            
         }
     }
-
     IEnumerator GoSlow(float slowSpeed, float slowSpeedDuration)
     {
         // set slow speed
@@ -47,7 +46,6 @@ public class SpeedChangeOnTimer : MonoBehaviour
         {
             StartCoroutine(GoSlow(slowSpeed, slowSpeedDuration));
         }
-
     }
 
     public void FastSpeed(float fastSpeed, float fastSpeedDuration)
@@ -57,6 +55,5 @@ public class SpeedChangeOnTimer : MonoBehaviour
         {
             StartCoroutine(GoFast(fastSpeed, fastSpeedDuration));
         }
-
     }
 }

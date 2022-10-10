@@ -23,8 +23,6 @@ public class BossIdleState : BossStateBase
             boss.SwitchState(boss._movingState);
         }
             
-    }
-   
-
+    } 
     
 }

@@ -972,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 521869814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1538,6 +1538,7 @@ GameObject:
   - component: {fileID: 732590201}
   - component: {fileID: 732590203}
   - component: {fileID: 732590202}
+  - component: {fileID: 732590204}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -1743,7 +1744,7 @@ MonoBehaviour:
   _slot01WeaponPrefab: {fileID: 896601568537866888, guid: 936fe9e217a8f7d408559bf9ab5e1ff4, type: 3}
   _slot02WeaponPrefab: {fileID: 2677583919699925210, guid: f5fb073554c016442b72b621f172f0e9, type: 3}
   _weaponSocket: {fileID: 58439495}
-  _shootSound: {fileID: 0}
+  _shootSound: {fileID: 8300000, guid: 8fe78da30422d2a47b579d32bb4555fe, type: 3}
 --- !u!114 &732590202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1760,14 +1761,11 @@ MonoBehaviour:
   _damageAmount: 1
   _healthDisplay: {fileID: 1876748110}
   _objectToBeDestroyed: {fileID: 1708869615}
-<<<<<<< HEAD
-=======
   _killSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
   _damageSound: {fileID: 8300000, guid: 3addba856ff48b64d96eced3e693b696, type: 3}
   _killParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
   _damageParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
   _particleSpawnLocation: {fileID: 1708869616}
->>>>>>> main
 --- !u!114 &732590203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1778,6 +1776,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e7deae910b21a2142adfc1132501442e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &732590204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732590192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937df9d0e12251c42bb1cebdd1f456f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &732654103
@@ -2411,7 +2421,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 974860372}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -3100,7 +3110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1166970596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.321, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3520,6 +3530,24 @@ Transform:
   m_Father: {fileID: 521869815}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1258967501 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3794512570246915412, guid: a249b644e0c362d4c8b429377f560a7b, type: 3}
+  m_PrefabInstance: {fileID: 3794512570595774140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1258967509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258967501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57610460451853c4296957bdb37e660f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmountOnCollision: 1
 --- !u!1 &1264157233
 GameObject:
   m_ObjectHideFlags: 0
@@ -3968,7 +3996,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-41194
+  m_Name: pb_Mesh24740
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

@@ -42,8 +42,7 @@ public class WeaponSystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
             {
             ShootWeapon();
-            }
-        
+            }        
     }
      
     public void EquipWeapon(WeaponBase newWeapon)

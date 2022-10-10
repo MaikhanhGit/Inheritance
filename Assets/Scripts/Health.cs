@@ -56,12 +56,9 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             if (damageParticle)
             {
                 Destroy(damageParticle, 3f);
-            }
-            
-        }
-        
+            }            
+        }        
     }
-
 
     public void Kill()
     {
