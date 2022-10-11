@@ -162,7 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damageAmountOnCollision: 0
   _objectToDestroy: {fileID: 90127453862527622}
-  _startSpeed: 100
+  _startSpeed: 150
+  _startParticle: {fileID: 2129764751877086730, guid: 132421ea64faa8445b344412812acc3e, type: 3}
+  _startSound: {fileID: 8300000, guid: b3564c83794864844b01317f09a2fee3, type: 3}
 --- !u!114 &7056585759899230455
 MonoBehaviour:
   m_ObjectHideFlags: 0

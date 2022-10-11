@@ -15,6 +15,8 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     [SerializeField] ParticleSystem _killParticle;
     [SerializeField] ParticleSystem _damageParticle;
     [SerializeField] Transform _particleSpawnLocation;
+    [SerializeField] GameObject _normalArt;
+    [SerializeField] GameObject _invincibilityArt;
 
     int _currentHealth = 0;
     bool _isInvincible;

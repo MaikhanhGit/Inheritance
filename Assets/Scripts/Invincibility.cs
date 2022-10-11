@@ -7,9 +7,15 @@ public class Invincibility : PowerUpBase
 {
     [SerializeField] GameObject _currentColorObject;
     [SerializeField] GameObject _newColorObject;
+    [SerializeField] float _selfMoveSpeed = 1000;
 
     IDamageable damageableObject;
-        
+
+
+    private void FixedUpdate()
+    {
+        ObjectRigidBody.velocity = (transform.forward * _selfMoveSpeed * Time.deltaTime * -1);
+    }
 
     protected override void PowerUp(Player player)
     {

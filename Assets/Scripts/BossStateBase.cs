@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class BossStateBase
 {    
 
-    public abstract void EnterState (BossStateManager boss, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies);
+    public abstract void EnterState (BossStateManager boss, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies, BossAttackStateBehaviors attackStateBehaviors);
 
     public abstract void UpdateState(BossStateManager boss);
 

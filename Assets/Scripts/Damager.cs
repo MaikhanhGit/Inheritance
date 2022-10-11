@@ -9,32 +9,40 @@ public class Damager : EnemyBase, IDamageable
         
     [SerializeField] float _distanceToStartFollow = 5;
     [SerializeField] float _moveSpeed = 1;
-    [SerializeField] float _startSpeed = 200;
+    [SerializeField] float _startSpeed = 700;
+    [SerializeField] ParticleSystem _startParticle;
+    [SerializeField] AudioClip _startSound;
 
     float _distance;    
     Rigidbody _rb;
-    GameObject _player;
+    GameObject _player;    
 
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
         _killedFeedback = GetComponent<IFeedbackKilled>();
-        _rb = GetComponent<Rigidbody>();
-        
+        _rb = GetComponent<Rigidbody>();        
+
     }
 
     private void Start()
     {
-        _rb.AddForce(transform.forward * _startSpeed * -1);
+        transform.LookAt(_player?.transform);
+        _rb.AddForce(transform.forward * _startSpeed);        
+        ParticleSystem startParticle = Instantiate(_startParticle, transform.position, Quaternion.identity);
+        startParticle.Play();
+        Object.Destroy(startParticle, 2f);
+        AudioHelper.PlayClip2D(_startSound, 1);
     }
     private void Update()
     {
         if(_player != null)
         {
+            transform.LookAt(_player.transform); 
+
             _distance = Vector3.Distance(_player.transform.position, transform.position);
             if (_distance <= _distanceToStartFollow)
-            {
-                transform.LookAt(_player.transform);
+            {                
                 _rb.AddForce(transform.forward * _moveSpeed);
             }
         }

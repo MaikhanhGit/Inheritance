@@ -6,7 +6,13 @@ public class HealthIncrease : CollectibleBase
 {
     IHealable healAbleObject;
 
-    [SerializeField] int _healAmount = 3;    
+    [SerializeField] int _healAmount = 3;
+    [SerializeField] float _selfMoveSpeed = 1000;
+
+    private void FixedUpdate()
+    {
+        ObjectRigidBody.velocity = (transform.forward * _selfMoveSpeed * Time.deltaTime * -1);
+    }
 
     protected override void Collect(Player player)
     {

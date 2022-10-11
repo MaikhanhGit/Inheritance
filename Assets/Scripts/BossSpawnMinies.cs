@@ -11,12 +11,13 @@ public class BossSpawnMinies : MonoBehaviour
     [SerializeField] float _spawnKillerInterval = 5;
 
     float _spawnDamagerCurrentTime;
-    float _spawnKillerCurrentTime;    
-
+    float _spawnKillerCurrentTime;
+    GameObject _player;
     private void Awake()
     {
         _spawnDamagerCurrentTime = _spawnDamagerInterval;        
         _spawnKillerCurrentTime = _spawnKillerInterval;
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void Start()
@@ -50,7 +51,8 @@ public class BossSpawnMinies : MonoBehaviour
 
     void SpawnMini(GameObject mini)
     {
-        GameObject spawnedObject = Instantiate(mini, _spawnPosition.position, Quaternion.identity);        
+        GameObject spawnedObject = Instantiate(mini, _spawnPosition.position, Quaternion.identity);
+        
     }
    
 }
