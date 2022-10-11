@@ -6,10 +6,11 @@ public class BossMovingState : BossStateBase
 {
     [SerializeField] int _damageAmount = 2;
     IDamageable damageableObject;
-    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol)
+    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies)
     {
         // start movement
         patrol.enabled = true;
+        spawnMinies.enabled = true;
     }    
 
     public override void UpdateState(BossStateManager boss)
@@ -18,7 +19,7 @@ public class BossMovingState : BossStateBase
         
     }
 
-    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle, Patrol patrol)
+    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies)
     {
         
     }

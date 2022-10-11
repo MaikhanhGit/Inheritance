@@ -6,15 +6,27 @@ using System;
 public class Boss : MonoBehaviour
 {
     [SerializeField] int _damageAmountOnCollision = 1;
+    
 
     IDamageable damageableObject;
-    Rigidbody _rb;    
+    Rigidbody _rb;
+    Health _health;
 
     public event Action DamagedVisual = delegate { };
+    public event Action AngryVisual = delegate { };
 
     private void Awake()
     {
-        _rb = GetComponent<Rigidbody>();        
+        _rb = GetComponent<Rigidbody>();
+        _health = GetComponent<Health>();
+    }
+
+    private void Update()
+    {
+        if(_health.CurrentHealth < ((_health.MaxHealth) / 2))
+        {
+            StartAngryVisual();
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -42,6 +54,11 @@ public class Boss : MonoBehaviour
     {
         DamagedVisual?.Invoke();
         
+    }
+
+    public void StartAngryVisual()
+    {
+        AngryVisual?.Invoke();
     }
 
 }

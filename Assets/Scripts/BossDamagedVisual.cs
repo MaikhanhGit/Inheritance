@@ -23,9 +23,7 @@ public class BossDamagedVisual : MonoBehaviour
 
     void ExtraDamageVisual()
     {
-        StartChangeVisual();
-        //yield return new WaitForSeconds(2f);
-                
+        StartChangeVisual();                        
     }
     
     void StartChangeVisual()

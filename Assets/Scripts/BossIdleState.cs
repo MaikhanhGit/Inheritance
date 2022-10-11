@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossIdleState : BossStateBase
 { 
 
-    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol)
+    public override void EnterState(BossStateManager boss, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies)
     {
         idleParticle.Play();        
     }
@@ -15,7 +15,7 @@ public class BossIdleState : BossStateBase
         
     }
 
-    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle, Patrol patrol)
+    public override void OnTriggerEnter(BossStateManager boss, Collider collider, ParticleSystem idleParticle, Patrol patrol, BossSpawnMinies spawnMinies)
     {
         if (idleParticle)
         {

@@ -12,6 +12,7 @@ public class BossStateManager : MonoBehaviour
     [SerializeField] public ParticleSystem _bossIdleParticle;
     Patrol _patrol;
     Health _bossHealth;
+    BossSpawnMinies _spawnMinies;
     float _bossCurrentHealth;
     float _bossMaxHealth;
 
@@ -19,12 +20,13 @@ public class BossStateManager : MonoBehaviour
     {
         // starting state
         _currentState = _idleState;
-        _currentState.EnterState(this, _bossIdleParticle, _patrol);
+        _currentState.EnterState(this, _bossIdleParticle, _patrol, _spawnMinies);
 
         _patrol = GetComponent<Patrol>();
         // get boss Health
         _bossHealth = GetComponent<Health>();
         _bossMaxHealth = _bossHealth.MaxHealth;
+        _spawnMinies = GetComponent<BossSpawnMinies>();
     }
 
     private void OnTriggerEnter(Collider collider)
@@ -35,7 +37,7 @@ public class BossStateManager : MonoBehaviour
 
         if (player || blasterProjectile || launcherProjectile)
         {            
-            _currentState.OnTriggerEnter(this, collider, _bossIdleParticle, _patrol);
+            _currentState.OnTriggerEnter(this, collider, _bossIdleParticle, _patrol, _spawnMinies);
         }
         
     }
@@ -55,7 +57,7 @@ public class BossStateManager : MonoBehaviour
     public void SwitchState(BossStateBase state)
     {
         _currentState = state;
-        _currentState.EnterState(this, _bossIdleParticle, _patrol);
+        _currentState.EnterState(this, _bossIdleParticle, _patrol, _spawnMinies);
     }
 
 }

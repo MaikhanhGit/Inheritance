@@ -7,10 +7,22 @@ public class Killer : EnemyBase, IDamageable
     IDamageable _damagableObject;
     IFeedbackKilled _killedFeedback;
 
+    [SerializeField] float _startSpeed = 100;
+
+    Rigidbody _rb;
+
     private void Awake()
     {
         _killedFeedback = GetComponent<IFeedbackKilled>();
+        _rb = GetComponent<Rigidbody>();
     }
+
+    private void Start()
+    {
+        _rb.AddForce(transform.forward * _startSpeed * -1);
+        
+    }
+
     private void OnCollisionEnter(Collision other)
     {
         Player player = other.gameObject.GetComponent<Player>();

@@ -2122,6 +2122,9 @@ GameObject:
   - component: {fileID: 6296329857433211707}
   - component: {fileID: 1402487462480537412}
   - component: {fileID: 184939919069904874}
+  - component: {fileID: 2414280334323281715}
+  - component: {fileID: 1258967509}
+  - component: {fileID: 1258967520}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -2145,6 +2148,7 @@ Transform:
   - {fileID: 2064053998}
   - {fileID: 4052080512963985322}
   - {fileID: 3820737786060241486}
+  - {fileID: 5064506559436509285}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2236,7 +2240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea7f306de87db44ebf026068a2c47b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _travelSpeed: 20
+  _travelSpeed: 25
   _moveSpots:
   - {fileID: 0}
   - {fileID: 0}
@@ -2251,7 +2255,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  _startWaitTime: 3
+  _waitTime: 1
   _spawnPositionSignal: {fileID: 2129764751877086730, guid: 230a4cd83696bd143ba4da57654168aa, type: 3}
   _spawnDelayTime: 2
   _startPatrol: 0
@@ -2270,6 +2274,51 @@ MonoBehaviour:
   _bossArtCurrent: {fileID: 1252066147272389695}
   _bossArtDamaged: {fileID: 3272987909529527005}
   _delay: 0.5
+--- !u!114 &2414280334323281715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794512570246915412}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7be91531acd889943a7e8750f1adac34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _firstObjectToSpawn: {fileID: 6213545531599465132, guid: 779be84b2e0f75446a0a21499ff1c15f, type: 3}
+  _secondObjectToSpawn: {fileID: 1804104544810378853, guid: b3b548763e9a4914ab002cc0df26f922, type: 3}
+  _spawnPosition: {fileID: 5064506559436509285}
+  _spawnDamagerInterval: 2
+  _spawnKillerInterval: 5
+--- !u!114 &1258967509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794512570246915412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57610460451853c4296957bdb37e660f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damageAmountOnCollision: 1
+--- !u!114 &1258967520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3794512570246915412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0cd615575c64364bb59c26c9615c805, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bossArtCurrent: {fileID: 1252066147272389695}
+  _bossArtDamaged: {fileID: 3272987909529527005}
+  _bossArtAngry: {fileID: 2064053997}
 --- !u!1 &3794512570336780801
 GameObject:
   m_ObjectHideFlags: 0
@@ -8712,6 +8761,37 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &8264095489190021150
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5064506559436509285}
+  m_Layer: 0
+  m_Name: MiniSpawnLocation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5064506559436509285
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264095489190021150}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.619, z: -0.015}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3794512570246915409}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8638785489743355558
 GameObject:
   m_ObjectHideFlags: 0
