@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class SpeedSlow : CollectibleBase
 {
     [SerializeField] float _speedAmount = 1f;
@@ -9,16 +10,18 @@ public class SpeedSlow : CollectibleBase
     [SerializeField] float _selfMoveSpeed = 1000;
 
     GameObject _player;
+    Rigidbody _rb;
 
     private void Awake()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
+        _rb = GetComponent<Rigidbody>();
         transform.LookAt(_player?.transform);
     }
 
     private void Start()
     {        
-        ObjectRigidBody?.AddForce(transform.forward * _selfMoveSpeed);
+        _rb.AddForce(transform.forward * _selfMoveSpeed );
     }
 
     private void FixedUpdate()
@@ -43,7 +46,7 @@ public class SpeedSlow : CollectibleBase
         ParticleSystem collectParticle = Instantiate
             (CollectParticle, CollectParticleSpawnPosition.position, Quaternion.identity);
         collectParticle.Play();
-        Object.Destroy(collectParticle, 3f);
+        
         SpeedChangeOnTimer speedChangeOnTimer;
         speedChangeOnTimer = player.GetComponent<SpeedChangeOnTimer>();
         if(speedChangeOnTimer != null)
@@ -54,6 +57,6 @@ public class SpeedSlow : CollectibleBase
 
     protected override void Move(Rigidbody rb)
     {
-        base.Move(rb);
+        
     }
 }

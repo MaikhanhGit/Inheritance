@@ -24,7 +24,7 @@ public class Killer : EnemyBase, IDamageable
         _rb.AddForce(transform.forward * _startSpeed * -1);
         ParticleSystem startParticle = Instantiate(_startParticle, transform.position, Quaternion.identity);
         startParticle.Play();
-        Object.Destroy(startParticle, 2f);
+        
         AudioHelper.PlayClip2D(_startSound, 1);
         
     }

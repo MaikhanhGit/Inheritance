@@ -6,7 +6,8 @@ public class BossAttackStateBehaviors : MonoBehaviour
 {    
     [SerializeField] GameObject[] _objectsToSpawn;
     [SerializeField] Transform _spawnPosition;
-    [SerializeField] float _spawnInterval = 3;    
+    [SerializeField] float _spawnInterval = 2;
+    [SerializeField] ParticleSystem _auraSphere;
 
     float _spawnCurrentTime;
     int _randomRange;
@@ -19,6 +20,9 @@ public class BossAttackStateBehaviors : MonoBehaviour
     private void Start()
     {
         _randomRange = Random.Range(0, _objectsToSpawn.Length);
+        ParticleSystem aurora = Instantiate(_auraSphere, transform.position, Quaternion.identity);
+        aurora.Play();
+
     }
 
     private void Update()

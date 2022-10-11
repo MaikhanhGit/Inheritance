@@ -9,9 +9,16 @@ public class HealthIncrease : CollectibleBase
     [SerializeField] int _healAmount = 3;
     [SerializeField] float _selfMoveSpeed = 1000;
 
+    Rigidbody _rb;
+
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     private void FixedUpdate()
     {
-        ObjectRigidBody.velocity = (transform.forward * _selfMoveSpeed * Time.deltaTime * -1);
+        _rb.AddForce(transform.forward * _selfMoveSpeed * -1);
     }
 
     protected override void Collect(Player player)

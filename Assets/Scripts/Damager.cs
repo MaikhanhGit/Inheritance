@@ -31,7 +31,7 @@ public class Damager : EnemyBase, IDamageable
         _rb.AddForce(transform.forward * _startSpeed);        
         ParticleSystem startParticle = Instantiate(_startParticle, transform.position, Quaternion.identity);
         startParticle.Play();
-        Object.Destroy(startParticle, 2f);
+        //Object.Destroy(startParticle, 2f);
         AudioHelper.PlayClip2D(_startSound, 1);
     }
     private void Update()

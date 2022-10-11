@@ -654,7 +654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606952306}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.781}
+  m_LocalPosition: {x: -0, y: -0.276, z: 0.781}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2245,8 +2245,8 @@ MonoBehaviour:
   _objectToBeDestroyed: {fileID: 3794512570336780801}
   _killSound: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}
   _damageSound: {fileID: 8300000, guid: e248e5016772d514196fcaf08ce7d367, type: 3}
-  _killParticle: {fileID: 5714350795187427476, guid: 5ce31ccb28b739b4d9c1ba5dff1b4ff3, type: 3}
-  _damageParticle: {fileID: 5714350795187427476, guid: 5ce31ccb28b739b4d9c1ba5dff1b4ff3, type: 3}
+  _killParticle: {fileID: 19800004, guid: cc33dd989b34e4e4794d8b452e10f662, type: 3}
+  _damageParticle: {fileID: 19800004, guid: ad085ef23cfb72e47b3b7f33696b44bd, type: 3}
   _particleSpawnLocation: {fileID: 3794512570336780925}
 --- !u!114 &6296329857433211707
 MonoBehaviour:
@@ -2289,7 +2289,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   _waitTime: 1
-  _spawnPositionSignal: {fileID: 2129764751877086730, guid: 230a4cd83696bd143ba4da57654168aa, type: 3}
+  _spawnPositionSignal: {fileID: 198681264470032530, guid: aa8d6482d70a23445b4b2a928ed1b845, type: 3}
   _spawnDelayTime: 2
   _startPatrol: 0
 --- !u!114 &184939919069904874
@@ -2322,8 +2322,8 @@ MonoBehaviour:
   _firstObjectToSpawn: {fileID: 6213545531599465132, guid: 779be84b2e0f75446a0a21499ff1c15f, type: 3}
   _secondObjectToSpawn: {fileID: 1804104544810378853, guid: b3b548763e9a4914ab002cc0df26f922, type: 3}
   _spawnPosition: {fileID: 5064506559436509285}
-  _spawnDamagerInterval: 1
-  _spawnKillerInterval: 5
+  _spawnDamagerInterval: 3
+  _spawnKillerInterval: 7
 --- !u!114 &1258967509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2359,7 +2359,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3794512570246915412}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6bbaa30955d6f8e47824ee48f07bf755, type: 3}
   m_Name: 
@@ -2368,10 +2368,10 @@ MonoBehaviour:
   - {fileID: 9126244863133931715, guid: c64c67a6629cdc649bac306a25ef6379, type: 3}
   - {fileID: 6213545531599465132, guid: 779be84b2e0f75446a0a21499ff1c15f, type: 3}
   - {fileID: 1804104544810378853, guid: b3b548763e9a4914ab002cc0df26f922, type: 3}
-  - {fileID: 204096513723338139, guid: ff2c9cfe9913c0d4a85ea266551e9326, type: 3}
   - {fileID: 8828266512052877750, guid: 67c92f62b0e01674986821db48818434, type: 3}
-  _spawnPosition: {fileID: 0}
-  _spawnInterval: 3
+  _spawnPosition: {fileID: 1606952307}
+  _spawnInterval: 2
+  _auraSphere: {fileID: 19800002, guid: eaf658c222f9eb84387ab390a71e7c33, type: 3}
 --- !u!1 &3794512570336780801
 GameObject:
   m_ObjectHideFlags: 0

@@ -105,7 +105,7 @@ public class Patrol : MonoBehaviour
         ParticleSystem _signal = Instantiate
         (_spawnPositionSignal, newSpot.position, Quaternion.identity);
         _signal.Play();
-        Object.Destroy(_signal, _spawnDelayTime);        
+                
     }
      private void BossMoveToNewLocation(int newLocation)
     { 

@@ -82,7 +82,7 @@ MonoBehaviour:
   _distanceToStartFollow: 5
   _moveSpeed: 1
   _startSpeed: 700
-  _startParticle: {fileID: 2129764751877086730, guid: 132421ea64faa8445b344412812acc3e, type: 3}
+  _startParticle: {fileID: 19800000, guid: e0ffa4da34414ff4bab38c799c19ce0f, type: 3}
   _startSound: {fileID: 8300000, guid: b3564c83794864844b01317f09a2fee3, type: 3}
 --- !u!114 &1766697331
 MonoBehaviour:

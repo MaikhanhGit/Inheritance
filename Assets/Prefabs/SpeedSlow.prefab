@@ -179,4 +179,4 @@ MonoBehaviour:
   _collectSound: {fileID: 8300000, guid: 92eaa0e981e2b574780bf788e5415161, type: 3}
   _speedAmount: 1
   _duration: 3
-  _selfMoveSpeed: 20
+  _selfMoveSpeed: 1000

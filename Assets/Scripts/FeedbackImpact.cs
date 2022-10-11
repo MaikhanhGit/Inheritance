@@ -16,9 +16,7 @@ public class FeedbackImpact : MonoBehaviour, IFeedbackImpact
             ParticleSystem impactParticle = Instantiate
                 (_impactParticle, transform.position, Quaternion.identity);
             impactParticle.Play();
-
-            // delayed destroyed            
-            Destroy(impactParticle, 3f);            
+                          
         }
         // Sound
         if (_impactSound != null)

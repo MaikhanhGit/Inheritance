@@ -160,6 +160,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToBeDestroyed: {fileID: 8663719537958411658}
-  _destroyParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
+  _destroyParticle: {fileID: 198330214428362902, guid: 0f7c1b1b0f04f814e971d1d942242651, type: 3}
   _particleSpawnPosition: {fileID: 8663719537896453476}
   _destroySFX: {fileID: 8300000, guid: 500e041589adbd04bba773209efa9283, type: 3}

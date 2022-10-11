@@ -16,8 +16,7 @@ public class FeedbackKilled : MonoBehaviour, IFeedbackKilled
                 (_killedParticle, transform.position, Quaternion.identity);
             killedParticle.Play();
 
-            // delayed destroyed
-            Destroy(killedParticle, 3f);
+            
         }
         // Sound
         if (_killedSound != null)

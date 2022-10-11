@@ -3,20 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable, IHealable
 {
     [SerializeField] int _maxHealth = 100;
     [SerializeField] int _damageAmount = 1;
-    [SerializeField] TextMeshProUGUI _healthDisplay;
+    // [SerializeField] TextMeshProUGUI _healthDisplay;
     [SerializeField] GameObject _objectToBeDestroyed;
     [SerializeField] AudioClip _killSound;
     [SerializeField] AudioClip _damageSound;
     [SerializeField] ParticleSystem _killParticle;
     [SerializeField] ParticleSystem _damageParticle;
     [SerializeField] Transform _particleSpawnLocation;
-    [SerializeField] GameObject _normalArt;
-    [SerializeField] GameObject _invincibilityArt;
+    [SerializeField] Image _healthBarUI;    
 
     int _currentHealth = 0;
     bool _isInvincible;
@@ -33,7 +33,10 @@ public class Health : MonoBehaviour, IDamageable, IHealable
 
     void UpdateHealthDisplay(int currentHealth)
     {
-        _healthDisplay.text = currentHealth.ToString();
+
+        _healthBarUI.fillAmount = currentHealth / _maxHealth;
+        
+        // _healthDisplay.text = currentHealth.ToString();
     }
     
     public void TakeDamage(int amount)
@@ -48,6 +51,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             }
             // update health bar
             UpdateHealthDisplay(_currentHealth);
+            
             // playsound
             AudioHelper.PlayClip2D(_damageSound, 1);
             // play particle
@@ -55,16 +59,14 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             ParticleSystem damageParticle = Instantiate
                 (_damageParticle, _particleSpawnLocation.position, Quaternion.identity);
             damageParticle.Play();
-            if (damageParticle)
-            {
-                Destroy(damageParticle, 3f);
-            }            
+                      
         }        
     }
 
     public void Kill()
     {
-        if(_isInvincible == false)
+       
+        if (_isInvincible == false)
         {
             UpdateHealthDisplay(0);
             // destroy object
@@ -78,10 +80,7 @@ public class Health : MonoBehaviour, IDamageable, IHealable
             ParticleSystem killParticle = Instantiate
                 (_killParticle, _particleSpawnLocation.position, Quaternion.identity);
             killParticle.Play();
-            if (killParticle)
-            {
-                Destroy(killParticle, 3f);
-            }
+            
         }        
     }
 
