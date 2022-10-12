@@ -63,7 +63,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!114 &530742315727044784
 MonoBehaviour:
@@ -230,7 +230,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1845287179168092402, guid: 9d571d536253e0442a3c347ee5ba6eee, type: 3}
       propertyPath: m_Range
-      value: 1.2
+      value: 2.01
       objectReference: {fileID: 0}
     - target: {fileID: 1845287179168092402, guid: 9d571d536253e0442a3c347ee5ba6eee, type: 3}
       propertyPath: m_Color.a
