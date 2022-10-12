@@ -14,9 +14,7 @@ public class Patrol : MonoBehaviour
     float _currentWaitTime;
     int _randomSpot;
     int _newRandomSpot;
-    public bool _startPatrol = false;
-    bool _bossCanMove = true;
-    bool _gotNewSpot = false;
+    public bool _startPatrol = false;    
 
     // get a location
     // spawn particle at the location

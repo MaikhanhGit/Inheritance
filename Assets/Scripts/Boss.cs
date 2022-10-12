@@ -6,13 +6,16 @@ using System;
 public class Boss : MonoBehaviour
 {
     [SerializeField] int _damageAmountOnCollision = 1;
-    
+    [SerializeField] GameObject _endGameArtToDisable;
 
     IDamageable damageableObject;
     Rigidbody _rb;
     Health _health;
-    public bool _isDead = false;
-
+    BossAttackStateBehaviors _bossAttackStateBehaviors;
+    BossAngryVisual _bossAngryVisual;
+    BossSpawnMinies _bossSpawnMinies;
+    BossStateManager _bossStateManager;
+        
     public event Action DamagedVisual = delegate { };
     public event Action AngryVisual = delegate { };
 
@@ -20,6 +23,10 @@ public class Boss : MonoBehaviour
     {
         _rb = GetComponent<Rigidbody>();
         _health = GetComponent<Health>();
+        _bossAttackStateBehaviors = GetComponent<BossAttackStateBehaviors>();
+        _bossAngryVisual = GetComponent<BossAngryVisual>();
+        _bossSpawnMinies = GetComponent<BossSpawnMinies>();
+        _bossStateManager = GetComponent<BossStateManager>();
     }
 
     private void Update()
@@ -29,9 +36,19 @@ public class Boss : MonoBehaviour
             StartAngryVisual();
         }
 
-        if (_isDead == true)
-        {
-            FindObjectOfType<GameManager>()?.Won();
+        if (_health.IsDead() == true)
+        {            
+            if (_bossStateManager || _bossSpawnMinies || _bossAngryVisual || _bossAttackStateBehaviors)
+            {                
+                _bossStateManager.enabled = false;
+                _bossSpawnMinies.enabled = false;
+                _bossAngryVisual.enabled = false;
+                _bossAttackStateBehaviors.enabled = false;
+            }            
+            _endGameArtToDisable?.SetActive(false);
+            
+            
+            FindObjectOfType<Manager>()?.Won();
         }
     }
 

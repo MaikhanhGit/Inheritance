@@ -5,8 +5,10 @@ using UnityEngine;
 [RequireComponent(typeof(TankController))]
 public class Player : MonoBehaviour
 {
+    [SerializeField] GameObject _objecToBeDisable;
     TankController _tankController;
     Health _health;        
+
 
     private void Awake()
     {
@@ -18,8 +20,12 @@ public class Player : MonoBehaviour
     {        
         if(_health.IsDead() == true)
         {
+            if (_objecToBeDisable != null)
+            {
+                _objecToBeDisable.SetActive(false);
+            }
             _tankController.enabled = false;
-            FindObjectOfType<GameManager>()?.GameOver();           
+            FindObjectOfType<Manager>()?.GameOver();           
         }        
     }
    

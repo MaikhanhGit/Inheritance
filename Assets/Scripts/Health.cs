@@ -6,17 +6,18 @@ using System;
 using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable, IHealable
-{
+{    
+
     [SerializeField] int _maxHealth = 100;
     [SerializeField] int _damageAmount = 1;
     // [SerializeField] TextMeshProUGUI _healthDisplay;
-    [SerializeField] GameObject _objectToBeDestroyed;
+    // [SerializeField] GameObject _objectToBeDestroyed;
     [SerializeField] AudioClip _killSound;
     [SerializeField] AudioClip _damageSound;
     [SerializeField] ParticleSystem _killParticle;
     [SerializeField] ParticleSystem _damageParticle;
     [SerializeField] Transform _particleSpawnLocation;
-    [SerializeField] Image _healthBarUI;
+    [SerializeField] Image _healthBarUI;    
         
     int _currentHealth = 0;
     bool _isInvincible;
@@ -59,15 +60,12 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     public void Kill()
     {                  
         if (_isInvincible == false)
-        {
+        {           
             _isDead = true;            
             UpdateHealthDisplay(0);
-            gameObject.GetComponent<Collider>().enabled = false;
-            // destroy object
-            if (_objectToBeDestroyed != null)
-            {
-                Destroy(_objectToBeDestroyed);
-            }
+            //gameObject.GetComponent<Collider>().enabled = false;
+            // disable object
+            
             // play sound
             AudioHelper.PlayClip2D(_killSound, 1);
             // play particle
