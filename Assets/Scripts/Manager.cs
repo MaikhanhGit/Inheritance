@@ -23,7 +23,7 @@ public class Manager : MonoBehaviour
             }
             _tankController = FindObjectOfType<Player>()?.GetComponent<TankController>();
             if (_tankController)
-            {
+            {                
                 _tankController.enabled = false;
             }
             
@@ -38,6 +38,11 @@ public class Manager : MonoBehaviour
             if (_UIManager)
             {
                 _UIManager.EnableGameOverMenu();
+            }
+            _tankController = FindObjectOfType<Player>()?.GetComponent<TankController>();
+            if (_tankController)
+            {
+                _tankController.enabled = false;
             }
             _gameEnded = true;
 

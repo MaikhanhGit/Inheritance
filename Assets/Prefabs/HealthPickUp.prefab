@@ -58,9 +58,9 @@ GameObject:
   - component: {fileID: 9126244863133931719}
   - component: {fileID: 9126244863133931718}
   - component: {fileID: 9126244863133931717}
-  - component: {fileID: 9126244863133931727}
+  - component: {fileID: 3925371020718870850}
   m_Layer: 0
-  m_Name: SpeedSlow
+  m_Name: HealthPickUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,7 +75,7 @@ Transform:
   m_GameObject: {fileID: 9126244863133931715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.86, y: 0.5, z: 3.09}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1575622362}
@@ -110,7 +110,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b71d35bc341be641b24ea6ca9e9837b, type: 2}
+  - {fileID: 2100000, guid: 1b573a3a7ae40f34e8597026ad1ba4a9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -161,7 +161,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &9126244863133931727
+--- !u!114 &3925371020718870850
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -170,14 +170,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9126244863133931715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e85c12f092922464596b6c24af445e22, type: 3}
+  m_Script: {fileID: 11500000, guid: 797b14a643a6b0941bdf2f5e3160a747, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _movementSpeed: 1
-  _collectParticle: {fileID: 7186027884650313079, guid: 4569386d171d2224a8da729e9da6dbc1, type: 3}
+  _collectParticle: {fileID: 19800006, guid: 8fc06027b01064e4f885fd8dd2929310, type: 3}
   _collectParticleSpawnPosition: {fileID: 9126244863133931721}
-  _collectSound: {fileID: 8300000, guid: 92eaa0e981e2b574780bf788e5415161, type: 3}
-  _speedAmount: 1
-  _duration: 3
-  _selfMoveSpeed: 1000
-  _artToDisable: {fileID: 0}
+  _collectSound: {fileID: 8300000, guid: c9709c9174a547b48930e6415568d96f, type: 3}
+  _healAmount: 3
+  _selfMoveSpeed: 700

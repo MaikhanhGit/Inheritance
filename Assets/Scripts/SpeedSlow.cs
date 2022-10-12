@@ -8,7 +8,7 @@ public class SpeedSlow : CollectibleBase
     [SerializeField] float _speedAmount = 1f;
     [SerializeField] float _duration = 5f;
     [SerializeField] float _selfMoveSpeed = 1000;
-
+    [SerializeField] GameObject _artToDisable;
     GameObject _player;
     Rigidbody _rb;
 
@@ -23,11 +23,7 @@ public class SpeedSlow : CollectibleBase
     {        
         _rb.AddForce(transform.forward * _selfMoveSpeed );
     }
-
-    private void FixedUpdate()
-    {
-        
-    }
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -35,13 +31,15 @@ public class SpeedSlow : CollectibleBase
         if (player != null)
         {
             Collect(player);
-
-            gameObject.SetActive(false);
+            
+            
         }
     }
 
     protected override void Collect(Player player)
     {
+        _artToDisable.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;
         AudioHelper.PlayClip2D(CollectSound, 1);
         ParticleSystem collectParticle = Instantiate
             (CollectParticle, CollectParticleSpawnPosition.position, Quaternion.identity);

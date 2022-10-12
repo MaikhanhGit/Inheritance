@@ -100,8 +100,13 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     }
 
     public void Heal(int healAmount)
-    {
+    {        
         _currentHealth += healAmount;
+        if(_currentHealth >= _maxHealth)
+        {
+            _currentHealth = _maxHealth;
+        }
+        UpdateHealthDisplay(_currentHealth);
     }
 
     

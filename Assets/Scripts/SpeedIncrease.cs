@@ -18,7 +18,15 @@ public class SpeedIncrease : PowerUpBase
         
     }
 
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        Player _player = other.GetComponent<Player>();
+        if (_player)
+        {
+            Debug.Log("player");
+            PowerUp(_player);
+        }
+    }
 
     protected override void PowerUp(Player player)
     {

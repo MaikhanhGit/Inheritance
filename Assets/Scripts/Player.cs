@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
             {
                 _objecToBeDisable.SetActive(false);
             }
-            _tankController.enabled = false;
+            //_tankController.enabled = false;
             FindObjectOfType<Manager>()?.GameOver();           
         }        
     }

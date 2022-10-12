@@ -2225,12 +2225,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectsToSpawn:
-  - {fileID: 9126244863133931715, guid: c64c67a6629cdc649bac306a25ef6379, type: 3}
+  - {fileID: 2828777525301182097, guid: 4cc69a699a9d47f4cb1188a7df60f6da, type: 3}
   - {fileID: 6213545531599465132, guid: 27e4cf86255bd42408711e604466e24f, type: 3}
   - {fileID: 530742315727044785, guid: cec416f4fe40c854d9631bfd6d39607b, type: 3}
-  - {fileID: 8828266512052877750, guid: 67c92f62b0e01674986821db48818434, type: 3}
+  - {fileID: 4196483534125102386, guid: ec05207dfcecc2243bbee44274392639, type: 3}
   _spawnPosition: {fileID: 1606952307}
-  _spawnInterval: 2
+  _spawnInterval: 1
   _auraSphere: {fileID: 19800002, guid: eaf658c222f9eb84387ab390a71e7c33, type: 3}
 --- !u!1 &3794512570336780801
 GameObject:

@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Treasure : CollectibleBase
 {
-    Inventory inventory;    
-    
+    Inventory inventory;
+
+    [SerializeField] GameObject _artToDisable;
+
     protected override void Collect(Player player)
     {
         // get Inventory count from player
@@ -17,7 +19,8 @@ public class Treasure : CollectibleBase
         ParticleSystem collectParticle = Instantiate
             (CollectParticle, CollectParticleSpawnPosition.position, Quaternion.identity);
         collectParticle.Play();
-        Object.Destroy(collectParticle, 3f);
+        _artToDisable.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,9 +28,7 @@ public class Treasure : CollectibleBase
         Player player = other.gameObject.GetComponent<Player>();
         if (player != null)
         {
-            Collect(player);
-
-            gameObject.SetActive(false);
+            Collect(player);                        
         }
     }
 }

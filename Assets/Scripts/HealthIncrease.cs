@@ -6,36 +6,50 @@ public class HealthIncrease : CollectibleBase
 {
     IHealable healAbleObject;
 
-    [SerializeField] int _healAmount = 3;
-    [SerializeField] float _selfMoveSpeed = 1000;
+    [SerializeField] int _healAmount = 5;
+    [SerializeField] float _selfMoveSpeed = 700;
+    [SerializeField] GameObject _artToDisable;
 
     Rigidbody _rb;
+    GameObject _player;
 
     private void Awake()
     {
         _rb = GetComponent<Rigidbody>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        transform.LookAt(_player?.transform);
     }
 
-    private void FixedUpdate()
+    private void Start()
     {
-        _rb.AddForce(transform.forward * _selfMoveSpeed * -1);
-    }
-
-    protected override void Collect(Player player)
-    {
-        // sfx
-        AudioHelper.PlayClip2D(CollectSound, 1);
-        // play particle
-        CollectParticle.Play();
-
+        _rb.AddForce(transform.forward * _selfMoveSpeed);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         healAbleObject = other.GetComponent<IHealable>();
-        if(healAbleObject != null)
+        Player _player = other.GetComponent<Player>();
+
+        if (healAbleObject != null && _player)
         {
-            healAbleObject.Heal(_healAmount);
+            Collect(_player);
         }
     }
+
+    protected override void Collect(Player player)
+    {
+        healAbleObject.Heal(_healAmount);
+
+        _artToDisable.SetActive(false);
+        gameObject.GetComponent<Collider>().enabled = false;        
+        // sfx
+        AudioHelper.PlayClip2D(CollectSound, 1);
+        // play particle
+        ParticleSystem collectParticle = Instantiate
+            (CollectParticle, CollectParticleSpawnPosition.position, Quaternion.identity);
+        collectParticle.Play();
+
+    }
+
+    
 }
