@@ -15,11 +15,6 @@ public class BreakableRock : DestroyableBase, IDamageable
             ParticleSystem destroyParticle = Instantiate
                 (DestroyParticle, ParticleSpawnPosition.position, Quaternion.identity);
             destroyParticle.Play();
-            if (destroyParticle)
-            {
-                Object.Destroy(destroyParticle, 3f);
-
-            }
             
         }
         

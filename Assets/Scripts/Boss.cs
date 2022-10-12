@@ -11,6 +11,7 @@ public class Boss : MonoBehaviour
     IDamageable damageableObject;
     Rigidbody _rb;
     Health _health;
+    public bool _isDead = false;
 
     public event Action DamagedVisual = delegate { };
     public event Action AngryVisual = delegate { };
@@ -26,6 +27,11 @@ public class Boss : MonoBehaviour
         if(_health.CurrentHealth < ((_health.MaxHealth) / 2))
         {
             StartAngryVisual();
+        }
+
+        if (_isDead == true)
+        {
+            FindObjectOfType<GameManager>()?.Won();
         }
     }
 

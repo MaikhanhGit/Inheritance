@@ -16,28 +16,22 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     [SerializeField] ParticleSystem _killParticle;
     [SerializeField] ParticleSystem _damageParticle;
     [SerializeField] Transform _particleSpawnLocation;
-    [SerializeField] Image _healthBarUI;    
-
+    [SerializeField] Image _healthBarUI;
+        
     int _currentHealth = 0;
     bool _isInvincible;
+    bool _isDead = false;
 
     public int CurrentHealth => _currentHealth;
-    public int MaxHealth => _maxHealth;    
+    public int MaxHealth => _maxHealth;
+         
 
     private void Awake()
     {
         _currentHealth = _maxHealth;
         UpdateHealthDisplay(_maxHealth);
-        _isInvincible = false;
-    }    
-
-    void UpdateHealthDisplay(int currentHealth)
-    {
-
-        _healthBarUI.fillAmount = currentHealth / _maxHealth;
-        
-        // _healthDisplay.text = currentHealth.ToString();
-    }
+        _isInvincible = false;        
+    }       
     
     public void TakeDamage(int amount)
     {        
@@ -62,26 +56,39 @@ public class Health : MonoBehaviour, IDamageable, IHealable
                       
         }        
     }
-
     public void Kill()
-    {
-       
+    {                  
         if (_isInvincible == false)
         {
+            _isDead = true;            
             UpdateHealthDisplay(0);
+            gameObject.GetComponent<Collider>().enabled = false;
             // destroy object
             if (_objectToBeDestroyed != null)
             {
-                Destroy(gameObject);
+                Destroy(_objectToBeDestroyed);
             }
             // play sound
             AudioHelper.PlayClip2D(_killSound, 1);
             // play particle
             ParticleSystem killParticle = Instantiate
-                (_killParticle, _particleSpawnLocation.position, Quaternion.identity);
-            killParticle.Play();
+                (_killParticle, transform.position, Quaternion.identity);
+            killParticle.Play();            
             
-        }        
+        }
+    }
+
+    void UpdateHealthDisplay(float currentHealth)
+    {
+
+        _healthBarUI.fillAmount = (currentHealth / _maxHealth);        
+
+        // _healthDisplay.text = currentHealth.ToString();
+    }
+
+    public bool IsDead()
+    {        
+        return _isDead;       
     }
 
     public void ActivateInvincibility()
@@ -98,4 +105,6 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     {
         _currentHealth += healAmount;
     }
+
+    
 }
